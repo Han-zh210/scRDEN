@@ -96,10 +96,10 @@ find_hv_edges = function(count, I, J){
   cv = sd/mu
   cv[is.na(cv)] = 0
   # sum(mu >= 1 & cv >= quantile(cv, 0.25), na.rm = TRUE)
-  high_var_genes = which( cv >= quantile(cv, 0.99))
-  if(length(high_var_genes) < 500){ 
-    high_var_genes = 1:I}
-  count_hv = count[high_var_genes, ]
+  high_var_edges = which( cv >= quantile(cv, 0.99))
+  if(length(high_var_edges) < 500){ 
+    high_var_edges = 1:I}
+  count_hv = count[high_var_edges, ]
   return(count_hv)
 }
 I = nrow(norm_data)
