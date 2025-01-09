@@ -87,7 +87,7 @@ net<-out
 delta_data<-delta.rank(rank_data,net)
 norm_data <-dynutils::scale_minmax(delta_data)
 
-find_hv_genes = function(count, I, J){
+find_hv_edges = function(count, I, J){
   count_nzero = lapply(1:I, function(i) setdiff(count[i, ], log10(1.01)))
   mu = sapply(count_nzero, mean)
   mu[is.na(mu)] = 0
@@ -104,7 +104,7 @@ find_hv_genes = function(count, I, J){
 }
 I = nrow(norm_data)
 J = ncol(norm_data)
-count_hv<-find_hv_genes(norm_data,I,J)
+count_hv<-find_hv_edges(norm_data,I,J)
 count_hv[1:5,1:5]
 saveRDS(count_hv,"AT2.rds")
 
