@@ -3,7 +3,6 @@ label<-read.table("AT2_label.txt",header = T)
 data<-readRDS("AT2.rds")
 label<-label$Sub
 library(dplyr)
-library(scCAN)
 library(umap)
 data<-t(data)
 set.seed(123)
